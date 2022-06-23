@@ -21,7 +21,7 @@ export class Consumer {
                 // consumer.consume();
                 setInterval(() => {
                     consumer.consume(1);
-                }, 2000);
+                }, 800);
             })
             .on('data', function (data: any) {
                 console.log(data.value.toString());
