@@ -1,15 +1,17 @@
 import { KafkaConsumer } from "node-rdkafka"
 export class Consumer {
 
-    constructor() {
+    id:number = 0;
+    constructor(id:number) {
         console.log("Consumer");
+        this.id = id;
         this.init();
     }
 
     init() {
 
         const consumer = new KafkaConsumer({
-            'group.id': 'kafka',
+            'group.id': `kafka:${this.id}`,
             'metadata.broker.list': 'localhost:9092',
         }, {});
 
