@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon ./src/index.ts localhost 8080",
+    "producer": "nodemon ./src/index.ts localhost 8080",
+    "consumer": "nodemon ./src/index.ts localhost 8081",
     "build": "tsc"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "node-rdkafka": "^2.13.0"
+  },
   "devDependencies": {
     "@types/node": "^18.0.0",
     "nodemon": "^2.0.16",

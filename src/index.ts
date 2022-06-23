@@ -1,4 +1,11 @@
-import { HelloWorld } from './HelloWorld';
+import { Consumer } from './Consumer';
+import { Producer } from './Producer';
 
-const helloWorld = new HelloWorld();
-helloWorld.greetings();
+const port: string = process.argv[process.argv.length - 1];
+
+if (port === "8080") {
+    const producer = new Producer();
+}
+if (port === "8081") {
+    const consumer = new Consumer();
+}
