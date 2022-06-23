@@ -8,6 +8,7 @@ export class Producer {
 
     init() {
 
+        let counter:number = 0;
         const producer = new Kproducer({
             'client.id': 'kafka',
             'metadata.broker.list': 'localhost:9092',
@@ -23,15 +24,21 @@ export class Producer {
 
         producer.connect();
 
-        producer.on('ready', function () {
+        producer.on('ready', async function () {
             try {
-                producer.produce(
-                    'topic',
-                    null,
-                    Buffer.from('Awesome message'),
-                    'Stormwind',
-                    Date.now(),
-                );
+
+                setInterval(async () => {
+                    await producer.produce(
+                        'test',
+                        null,
+                        Buffer.from(`${counter}`),
+                        'test',
+                        Date.now(),
+                    );
+                    console.log(`send to queue --> ${counter}`);
+                    counter++;
+                }, 1000)
+
             } catch (err) {
                 console.error('A problem occurred when sending our message');
                 console.error(err);

@@ -5,7 +5,22 @@ Install packages
 yarn install
 ```
 
-Run server
+Run kafka
 ```shell
-yarn server
+docker-compose up
+```
+
+Create topic
+```shell
+bash bash/topic.bash 
+```
+
+Run producer
+```shell
+yarn run producer
+```
+
+Run consumer
+```shell
+yarn run consumer
 ```

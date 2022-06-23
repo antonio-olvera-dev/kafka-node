@@ -1,4 +1,4 @@
-import { KafkaConsumer as Kconsumer } from "node-rdkafka"
+import { KafkaConsumer } from "node-rdkafka"
 export class Consumer {
 
     constructor() {
@@ -8,7 +8,7 @@ export class Consumer {
 
     init() {
 
-        const consumer = new Kconsumer({
+        const consumer = new KafkaConsumer({
             'group.id': 'kafka',
             'metadata.broker.list': 'localhost:9092',
         }, {});
@@ -17,7 +17,7 @@ export class Consumer {
 
         consumer
             .on('ready', function () {
-                consumer.subscribe(['librdtesting-01']);
+                consumer.subscribe(['test']);
                 consumer.consume();
             })
             .on('data', function (data: any) {
