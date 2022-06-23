@@ -37,7 +37,7 @@ export class Producer {
                     );
                     console.log(`send to queue --> ${counter}`);
                     counter++;
-                }, 1000)
+                }, 500)
 
             } catch (err) {
                 console.error('A problem occurred when sending our message');
@@ -50,6 +50,6 @@ export class Producer {
             console.error(err);
         })
 
-        producer.setPollInterval(100);
+        // producer.setPollInterval(100);
     }
 }

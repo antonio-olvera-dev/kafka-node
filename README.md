@@ -24,3 +24,8 @@ Run consumer
 ```shell
 yarn run consumer
 ```
+
+Run consumer2
+```shell
+yarn run consumer2
+```
